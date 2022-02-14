@@ -7,18 +7,18 @@
 
 import Foundation
 
-class NetworkingContoller {
+class NetworkingController {
     private static let baseURLString = "https://api.weatherbit.io"
     
     static func fetchDays(completion: @escaping (Result<TopLevelDictionary, ResultError>) -> Void) {
-        guard let baseURL = URL(string:baseURLString) else {return}
+        guard let baseURL = URL(string:baseURLString) else { return }
 
 
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path = "/v2.0/forecast/daily"
         
         let apiQuery = URLQueryItem(name: "key", value: "8503276d5f49474f953722fa0a8e7ef8")
-        let cityQuery = URLQueryItem(name: "city", value:"Salt Lake")
+        let cityQuery = URLQueryItem(name: "city", value:"Delano")
         let unitsQuery = URLQueryItem(name: "units", value: "I")
         urlComponents?.queryItems = [apiQuery,cityQuery,unitsQuery]
         
